@@ -11,7 +11,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
-    
+        
     <style>
         body { font-family: 'Montserrat', sans-serif; -webkit-font-smoothing: antialiased; }
         html { scroll-behavior: smooth; }
@@ -76,13 +76,26 @@
             transform: scale(1.02);
             z-index: 10;
         }
+
+/* Estilos para o FAQ */
+	.faq-item { border-bottom: 1px solid rgba(15, 23, 42, 0.1); }
+	.faq-content { 
+	max-height: 0; 
+	overflow: hidden; 
+	transition: max-height 0.3s ease-out; 
+	}
+	.faq-item.active .faq-content { max-height: 300px; padding-bottom: 20px; }
+	.faq-item.active i { transform: rotate(45deg); color: #1d4ed8; }
+	.faq-item i { transition: transform 0.3s ease; }
+
     </style>
 </head>
 <body class="bg-white text-slate-900 overflow-x-hidden">
 
-    <a href="https://wa.me/5591985574096" class="wpp-float" target="_blank">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
+    <!-- BOTÃO WHATSAPP FLUTUANTE -->
+<a href="https://wa.me/5591992972080?text=Olá!%20Quero%20avaliar%20uma%20obra%20em%20EPS.%20Podem%20me%20passar%20valores%20e%20prazos?" class="wpp-float" target="_blank">
+    <i class="fa-brands fa-whatsapp"></i>
+</a>
 
     <!-- NAVBAR -->
     <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-100 px-4 md:px-6 py-4">
@@ -94,7 +107,7 @@
                 <a href="#cronograma" class="hover:text-blue-700">Etapas</a>
                 <a href="#beneficios" class="hover:text-blue-700">Vantagens</a>
             </div>
-            <a href="https://wa.me/5591985574096" class="bg-blue-700 text-white px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest">Contato</a>
+            <a href="https://wa.me/5591992972080?text=Olá!%20Quero%20avaliar%20uma%20obra%20em%20EPS.%20Podem%20me%20passar%20valores%20e%20prazos?" class="bg-blue-700 text-white px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest">Contato</a>
         </div>
     </nav>
 
@@ -126,7 +139,7 @@
                     Se você busca uma obra <span class="text-white font-bold italic">mais em conta, extremamente rápida e com desperdício zero</span>, a VHF Serviços entrega a tecnologia que o mercado convencional ignora. Reduza custos sem abrir mão do rigor técnico.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="https://wa.me/5591985574096" class="bg-blue-700 hover:bg-blue-800 text-white px-8 py-5 rounded-full font-bold uppercase text-[11px] tracking-widest transition-all text-center shadow-2xl shadow-blue-900/40">
+                    <a href="https://wa.me/5591992972080?text=Olá!%20Quero%20avaliar%20uma%20obra%20em%20EPS.%20Podem%20me%20passar%20valores%20e%20prazos?" class="bg-blue-700 hover:bg-blue-800 text-white px-8 py-5 rounded-full font-bold uppercase text-[11px] tracking-widest transition-all text-center shadow-2xl shadow-blue-900/40">
                         Quero orçamento com economia
                     </a>
                     <a href="#calculadora" class="bg-white/10 hover:bg-white/20 text-white px-8 py-5 rounded-full font-bold uppercase text-[11px] tracking-widest transition-all text-center border border-white/20 backdrop-blur-sm">
@@ -293,15 +306,86 @@
         </div>
     </section>
 
+<!-- SEÇÃO FAQ -->
+<section id="faq" class="py-24 bg-white px-6">
+    <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-2xl md:text-3xl font-black uppercase italic tracking-tighter">Dúvidas <span class="text-blue-700">Frequentes</span></h2>
+        </div>
+
+        <div class="space-y-4">
+            <!-- Pergunta 01 -->
+            <div class="faq-item cursor-pointer" onclick="toggleFaq(this)">
+                <div class="flex justify-between items-center py-6">
+                    <h4 class="text-[11px] font-black uppercase tracking-widest">O EPS é realmente resistente?</h4>
+                    <i class="fa-solid fa-plus text-slate-400"></i>
+                </div>
+                <div class="faq-content">
+                    <p class="text-xs text-slate-500 leading-relaxed uppercase font-bold italic">Sim. A resistência vem da união do EPS com as telas de aço e a camada de argamassa estrutural, criando um painel monolítico mais rígido que a alvenaria comum.</p>
+                </div>
+            </div>
+
+            <!-- Pergunta 02 -->
+            <div class="faq-item cursor-pointer" onclick="toggleFaq(this)">
+                <div class="flex justify-between items-center py-6">
+                    <h4 class="text-[11px] font-black uppercase tracking-widest">Como fixar armários e quadros?</h4>
+                    <i class="fa-solid fa-plus text-slate-400"></i>
+                </div>
+                <div class="faq-content">
+                    <p class="text-xs text-slate-500 leading-relaxed uppercase font-bold italic">Utilizam-se buchas específicas para concreto ou nylon que se fixam na camada de reboco estrutural, garantindo sustentação total para móveis planejados.</p>
+                </div>
+            </div>
+
+            <!-- Pergunta 03 -->
+            <div class="faq-item cursor-pointer" onclick="toggleFaq(this)">
+                <div class="flex justify-between items-center py-6">
+                    <h4 class="text-[11px] font-black uppercase tracking-widest">O material é inflamável?</h4>
+                    <i class="fa-solid fa-plus text-slate-400"></i>
+                </div>
+                <div class="faq-content">
+                    <p class="text-xs text-slate-500 leading-relaxed uppercase font-bold italic">Não. Utilizamos EPS do tipo "F" (anti-chamas), que não propaga fogo e é protegido pela camada de argamassa em ambos os lados.</p>
+                </div>
+            </div>
+
+            <!-- Pergunta 04 -->
+            <div class="faq-item cursor-pointer" onclick="toggleFaq(this)">
+                <div class="flex justify-between items-center py-6">
+                    <h4 class="text-[11px] font-black uppercase tracking-widest">Por que é mais barato?</h4>
+                    <i class="fa-solid fa-plus text-slate-400"></i>
+                </div>
+                <div class="faq-content">
+                    <p class="text-xs text-slate-500 leading-relaxed uppercase font-bold italic">A economia vem da redução de 50% no tempo de mão de obra, desperdício zero de materiais e fundações mais leves devido ao peso reduzido da estrutura.</p>
+                </div>
+            </div>
+
+            <!-- Pergunta 05 -->
+            <div class="faq-item cursor-pointer" onclick="toggleFaq(this)">
+                <div class="flex justify-between items-center py-6">
+                    <h4 class="text-[11px] font-black uppercase tracking-widest">Aceita qualquer tipo de acabamento?</h4>
+                    <i class="fa-solid fa-plus text-slate-400"></i>
+                </div>
+                <div class="faq-content">
+                    <p class="text-xs text-slate-500 leading-relaxed uppercase font-bold italic">Completamente. Após o reboco, a parede pode receber pintura, textura, cerâmica, pedras ou qualquer revestimento convencional.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
     <!-- FOOTER -->
     <footer class="py-20 bg-slate-900 text-white px-6">
         <div class="max-w-7xl mx-auto border-b border-white/10 pb-12 flex flex-col md:flex-row justify-between items-center gap-8">
             <span class="text-2xl md:text-3xl font-black uppercase italic">VHF<span class="text-blue-700">Serviços</span></span>
-            <p class="text-slate-500 text-[10px] uppercase font-bold tracking-[0.3em] text-center">Paragominas - PA & Região | +55 (91) 98557-4096</p>
-        </div>
-        <div class="pt-8 text-center text-[9px] text-slate-500 uppercase tracking-widest font-bold">
-            &copy; 2026 VHF Serviços - Engenharia de Performance Monolítica.
-        </div>
+            <p class="text-slate-500 text-[10px] uppercase font-bold tracking-[0.3em] text-center">Paragominas - PA & Região | +55 (91) 99297-2080</p>
+
+<div class="flex justify-center gap-6 mt-6">
+    <a href="https://instagram.com/vhf_servicos" target="_blank" class="text-slate-500 hover:text-white transition-colors">
+        <i class="fa-brands fa-instagram text-2xl"></i>
+    </a>
+    <a href="https://wa.me/5591992972080?text=Olá!%20Quero%20avaliar%20uma%20obra%20em%20EPS.%20Podem%20me%20passar%20valores%20e%20prazos?"" target="_blank" class="text-slate-500 hover:text-white transition-colors">
+        <i class="fa-brands fa-whatsapp text-2xl"></i>
+    </a>
+</div>
     </footer>
 
     <script>
@@ -364,6 +448,24 @@
 
         document.getElementById('track-etapas').innerHTML = renderEtapas(etapas) + renderEtapas(etapas);
         updateCalc();
+
+// Forçar retorno ao topo no refresh
+window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+};
+
+// Lógica do FAQ (Abre um e fecha os outros)
+function toggleFaq(element) {
+    const items = document.querySelectorAll('.faq-item');
+    const isActive = element.classList.contains('active');
+
+    items.forEach(item => item.classList.remove('active'));
+
+    if (!isActive) {
+        element.classList.add('active');
+    }
+}
+
     </script>
 </body>
 </html>
