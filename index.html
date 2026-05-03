@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VHF Serviços | Engenharia Monolítica em EPS</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="https://github.com/brenerlabs/epslincoln/raw/main/logo-favicon.ico">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Montserrat', sans-serif; -webkit-font-smoothing: antialiased; }
+        html { scroll-behavior: smooth; }
+        
+        /* Ajuste do Hero para suportar Vídeo */
+        .bg-hero { 
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.7));
+            z-index: 1;
+        }
+
+        .wpp-float {
+            position: fixed; width: 55px; height: 55px; bottom: 25px; left: 25px;
+            background-color: #25d366; color: #FFF; border-radius: 50px;
+            text-align: center; font-size: 28px; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3); z-index: 100;
+            display: flex; align-items: center; justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .carousel-track {
+            display: flex;
+            width: max-content;
+            /* Acelerado em 1.5x (de 80s para ~53s) */
+            animation: scroll 53s linear infinite;
+        }
+
+        .carousel-track:hover { animation-play-state: paused; }
+
+        .step-card {
+            width: 300px;
+            flex-shrink: 0;
+            margin-right: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card .hover-info { opacity: 0; transform: translateY(10px); transition: all 0.3s ease; pointer-events: none; }
+        .benefit-card:hover .hover-info { opacity: 1; transform: translateY(0); pointer-events: auto; }
+        .progress-bar { transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
+        
+        /* Borda de destaque para etapas 01-10 */
+        .core-service-highlight {
+            border: 3px solid #1d4ed8 !important;
+            box-shadow: 0 20px 25px -5px rgba(29, 78, 216, 0.1), 0 10px 10px -5px rgba(29, 78, 216, 0.04);
+            transform: scale(1.02);
+            z-index: 10;
+        }
+    </style>
+</head>
+<body class="bg-white text-slate-900 overflow-x-hidden">
+
+    <a href="https://wa.me/5591985574096" class="wpp-float" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- NAVBAR -->
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-100 px-4 md:px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <span class="text-xl md:text-2xl font-black tracking-tighter text-slate-900 uppercase">VHF<span class="text-blue-700 font-light italic">Serviços</span></span>
+            <div class="hidden md:flex gap-8 text-[10px] uppercase font-bold tracking-[0.2em] text-slate-500">
+                <a href="#modelo-servico" class="hover:text-blue-700">O que entregamos</a>
+                <a href="#calculadora" class="hover:text-blue-700">Calculadora de Tempo</a>
+                <a href="#cronograma" class="hover:text-blue-700">Etapas</a>
+                <a href="#beneficios" class="hover:text-blue-700">Vantagens</a>
+            </div>
+            <a href="https://wa.me/5591985574096" class="bg-blue-700 text-white px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest">Contato</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION COM VÍDEO -->
+    <section class="bg-hero flex items-center px-6 pt-32 pb-12">
+        <!-- Background Video -->
+        <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover z-0">
+            <source src="https://github.com/brenerlabs/epslincoln/raw/main/video.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
+
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+            <div class="lg:col-span-7 text-center lg:text-left text-white">
+                <div class="mb-6">
+                    <h2 class="text-blue-400 text-xl md:text-3xl font-black uppercase tracking-[0.15em] leading-tight mb-2">
+                        Engenharia de Alto Impacto <br>
+                        <span class="text-white">em Paragominas & Região</span>
+                    </h2>
+                    <span class="inline-block bg-blue-700/20 text-blue-400 px-4 py-1 rounded border border-blue-700/30 text-[10px] font-bold uppercase tracking-widest italic">
+                        Especialistas em Construção Monolítica (EPS)
+                    </span>
+                </div>
+
+                <h1 class="text-5xl md:text-7xl font-black tracking-tighter leading-[0.9] mb-8 uppercase italic">
+                    CONSTRUA <br><span class="text-blue-500 text-6xl md:text-8xl">RÁPIDO E BARATO</span>
+                </h1>
+                
+                <p class="text-sm md:text-lg text-slate-300 font-light leading-relaxed mb-10 max-w-2xl">
+                    Se você busca uma obra <span class="text-white font-bold italic">mais em conta, extremamente rápida e com desperdício zero</span>, a VHF Serviços entrega a tecnologia que o mercado convencional ignora. Reduza custos sem abrir mão do rigor técnico.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="https://wa.me/5591985574096" class="bg-blue-700 hover:bg-blue-800 text-white px-8 py-5 rounded-full font-bold uppercase text-[11px] tracking-widest transition-all text-center shadow-2xl shadow-blue-900/40">
+                        Quero orçamento com economia
+                    </a>
+                    <a href="#calculadora" class="bg-white/10 hover:bg-white/20 text-white px-8 py-5 rounded-full font-bold uppercase text-[11px] tracking-widest transition-all text-center border border-white/20 backdrop-blur-sm">
+                        Simular Tempo de Obra
+                    </a>
+                </div>
+            </div>
+
+            <!-- Lado Direito: Cards Rápidos -->
+            <div class="lg:col-span-5 glass-card rounded-[2.5rem] p-8 md:p-10 text-white border-t-4 border-blue-600">
+                <div class="space-y-4">
+                    <div class="bg-white/5 p-5 rounded-2xl border border-white/10 flex justify-between items-center">
+                        <div>
+                            <span class="text-[9px] font-bold text-blue-400 uppercase">Custo Estimado</span>
+                            <h4 class="text-xl font-black italic">ATÉ 30% ABAIXO</h4>
+                        </div>
+                        <i class="fa-solid fa-chart-line text-blue-500 text-2xl opacity-50"></i>
+                    </div>
+
+                    <div class="bg-white/5 p-5 rounded-2xl border border-white/10 flex justify-between items-center">
+                        <div>
+                            <span class="text-[9px] font-bold text-blue-400 uppercase">Velocidade</span>
+                            <h4 class="text-xl font-black italic">40% MAIS RÁPIDA</h4>
+                        </div>
+                        <i class="fa-solid fa-bolt-lightning text-blue-500 text-2xl opacity-50"></i>
+                    </div>
+
+                    <div class="pt-6 border-t border-white/10 space-y-3">
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-check text-blue-500 text-xs"></i>
+                            <span class="text-[10px] font-bold uppercase tracking-tight">Conforto Térmico Superior</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-check text-blue-500 text-xs"></i>
+                            <span class="text-[10px] font-bold uppercase tracking-tight">Resistência Estrutural Monolítica</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-check text-blue-500 text-xs"></i>
+                            <span class="text-[10px] font-bold uppercase tracking-tight">Redução de 95% de entulho</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CALCULADORA DE PRODUTIVIDADE ATUALIZADA -->
+    <section id="calculadora" class="py-24 bg-slate-900 text-white px-6">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-black uppercase italic tracking-tighter mb-4">SIMULADOR DE <span class="text-blue-500">PRODUTIVIDADE</span></h2>
+                <p class="text-slate-400 text-xs font-bold uppercase tracking-[0.3em]">Cálculo real de entrega: 8m²/dia no EPS</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="bg-white/5 p-8 rounded-[2.5rem] border border-white/10">
+                    <label class="block text-[10px] font-black uppercase tracking-widest mb-6 text-blue-400">Tamanho da Obra (m²)</label>
+                    <input type="range" id="input-m2" min="20" max="500" value="100" class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-blue-500 mb-4" oninput="updateCalc()">
+                    <div class="flex justify-between items-center mb-8">
+                        <span class="text-4xl font-black italic"><span id="display-m2">100</span>m²</span>
+                    </div>
+                    <p class="text-[10px] text-slate-400 uppercase leading-relaxed font-bold italic">
+                        *Estimativa técnica baseada na logística VHF para a região de Paragominas.
+                    </p>
+                </div>
+
+                <div class="space-y-8">
+                    <!-- EPS -->
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <span class="text-xs font-black uppercase italic text-blue-500">Sistema Monolítico EPS (VHF)</span>
+                            <span class="text-xs font-black uppercase italic"><span id="time-eps">13</span> Dias</span>
+                        </div>
+                        <div class="w-full bg-slate-800 h-6 rounded-full overflow-hidden border border-white/10">
+                            <div id="bar-eps" class="h-full bg-blue-600 progress-bar" style="width: 45%;"></div>
+                        </div>
+                    </div>
+
+                    <!-- CONVENCIONAL -->
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <span class="text-xs font-black uppercase italic text-slate-400">Alvenaria Convencional (+120%)</span>
+                            <span class="text-xs font-black uppercase italic text-slate-400"><span id="time-conv">29</span> Dias</span>
+                        </div>
+                        <div class="w-full bg-slate-800 h-6 rounded-full overflow-hidden border border-white/10">
+                            <div id="bar-conv" class="h-full bg-slate-600 progress-bar" style="width: 100%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="bg-blue-600/10 p-4 rounded-xl border border-blue-500/20 text-center">
+                        <p class="text-[11px] font-black uppercase italic">Você economiza <span id="time-saved" class="text-blue-400 text-lg">16</span> dias de canteiro com a VHF!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODELO DE SERVIÇO -->
+    <section id="modelo-servico" class="py-16 bg-white border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 italic">
+                <div class="p-8 bg-slate-50 rounded-[2.5rem] border-l-4 border-blue-700 shadow-sm">
+                    <h3 class="font-black uppercase text-blue-700 text-lg mb-3">01. Nossa Especialidade: Até o Cinza</h3>
+                    <p class="text-[11px] text-slate-600 leading-relaxed uppercase font-bold tracking-tight">
+                        Executamos o núcleo tecnológico: do radier ao reboco estrutural (shotcrete). Estrutura pronta para o acabamento com garantia técnica.
+                    </p>
+                </div>
+                <div class="p-8 bg-slate-900 rounded-[2.5rem] text-white border-l-4 border-slate-500 shadow-xl">
+                    <h3 class="font-black uppercase text-slate-400 text-lg mb-3">02. Gestão 360: Obra 100%</h3>
+                    <p class="text-[11px] text-slate-400 leading-relaxed uppercase font-bold tracking-tight">
+                        Gerenciamos fornecedores e terceirizamos as etapas de acabamento sob nossa supervisão rigorosa. Entregamos a chave na mão.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CRONOGRAMA DINÂMICO ACELERADO -->
+    <section id="cronograma" class="py-16 md:py-24 bg-slate-50 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 mb-12 text-center">
+            <h2 class="text-2xl md:text-4xl font-black uppercase italic tracking-tighter text-slate-900">Roteiro de <span class="text-blue-700">Construção</span></h2>
+            <p class="text-slate-400 text-[10px] font-bold uppercase tracking-[0.3em] mt-4">As etapas com borda azul são entregues diretamente por nós</p>
+        </div>
+
+        <div class="carousel-container relative">
+            <div class="carousel-track" id="track-etapas">
+                <!-- Inserido via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- BENEFÍCIOS -->
+    <section id="beneficios" class="py-16 md:py-24 bg-white px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-2xl md:text-3xl font-black uppercase tracking-tighter italic text-slate-900">O que você ganha com o <span class="text-blue-700">EPS?</span></h2>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="benefit-card p-8 bg-slate-50 rounded-3xl border border-slate-100 relative h-64 flex flex-col justify-center overflow-hidden cursor-pointer">
+                    <i class="fa-solid fa-leaf text-blue-700 text-3xl mb-4"></i>
+                    <h4 class="font-bold text-xs uppercase mb-2 italic text-slate-800">Sustentabilidade</h4>
+                    <p class="text-[11px] text-slate-500">95% menos entulho no canteiro.</p>
+                    <div class="hover-info absolute inset-0 p-8 flex items-center bg-blue-700 text-white text-[11px] font-bold uppercase italic">Canteiro limpo, sem desperdício de materiais e água.</div>
+                </div>
+                <div class="benefit-card p-8 bg-slate-50 rounded-3xl border border-slate-100 relative h-64 flex flex-col justify-center overflow-hidden cursor-pointer">
+                    <i class="fa-solid fa-snowflake text-blue-700 text-3xl mb-4"></i>
+                    <h4 class="font-bold text-xs uppercase mb-2 italic text-slate-800">Conforto Térmico</h4>
+                    <p class="text-[11px] text-slate-500">Sua casa fresca o ano todo.</p>
+                    <div class="hover-info absolute inset-0 p-8 flex items-center bg-blue-700 text-white text-[11px] font-bold uppercase italic">Redução drástica no uso de ar-condicionado.</div>
+                </div>
+                <div class="benefit-card p-8 bg-slate-50 rounded-3xl border border-slate-100 relative h-64 flex flex-col justify-center overflow-hidden cursor-pointer">
+                    <i class="fa-solid fa-clock text-blue-700 text-3xl mb-4"></i>
+                    <h4 class="font-bold text-xs uppercase mb-2 italic text-slate-800">Velocidade</h4>
+                    <p class="text-[11px] text-slate-500">Entrega acelerada comprovada.</p>
+                    <div class="hover-info absolute inset-0 p-8 flex items-center bg-blue-700 text-white text-[11px] font-bold uppercase italic">Montagem industrializada que antecipa sua mudança.</div>
+                </div>
+                <div class="benefit-card p-8 bg-slate-50 rounded-3xl border border-slate-100 relative h-64 flex flex-col justify-center overflow-hidden cursor-pointer">
+                    <i class="fa-solid fa-shield-halved text-blue-700 text-3xl mb-4"></i>
+                    <h4 class="font-bold text-xs uppercase mb-2 italic text-slate-800">Segurança</h4>
+                    <p class="text-[11px] text-slate-500">Estrutura Monolítica.</p>
+                    <div class="hover-info absolute inset-0 p-8 flex items-center bg-blue-700 text-white text-[11px] font-bold uppercase italic">Paredes impossíveis de quebrar e resistentes ao fogo.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-20 bg-slate-900 text-white px-6">
+        <div class="max-w-7xl mx-auto border-b border-white/10 pb-12 flex flex-col md:flex-row justify-between items-center gap-8">
+            <span class="text-2xl md:text-3xl font-black uppercase italic">VHF<span class="text-blue-700">Serviços</span></span>
+            <p class="text-slate-500 text-[10px] uppercase font-bold tracking-[0.3em] text-center">Paragominas - PA & Região | +55 (91) 98557-4096</p>
+        </div>
+        <div class="pt-8 text-center text-[9px] text-slate-500 uppercase tracking-widest font-bold">
+            &copy; 2026 VHF Serviços - Engenharia de Performance Monolítica.
+        </div>
+    </footer>
+
+    <script>
+        // LÓGICA CALCULADORA ATUALIZADA
+        function updateCalc() {
+            const m2 = document.getElementById('input-m2').value;
+            document.getElementById('display-m2').innerText = m2;
+
+            // EPS: 8m² por dia
+            const daysEps = Math.ceil(m2 / 8);
+            // Alvenaria: EPS + 120% (ou seja, 2.2x o tempo do EPS)
+            const daysConv = Math.ceil(daysEps * 2.2);
+            const saved = daysConv - daysEps;
+
+            document.getElementById('time-eps').innerText = daysEps;
+            document.getElementById('time-conv').innerText = daysConv;
+            document.getElementById('time-saved').innerText = saved;
+
+            document.getElementById('bar-eps').style.width = ((daysEps / daysConv) * 100) + '%';
+            document.getElementById('bar-conv').style.width = '100%';
+        }
+
+        const etapas = [
+            {n: "01", t: "Terraplanagem", d: "Execução da terraplanagem e compactação do solo.", img: "https://i.postimg.cc/FzPmTYk0/etapa-01.jpg"},
+            {n: "02", t: "Armação do Radier", d: "Lona plástica e montagem da malha de aço estrutural.", img: "https://i.postimg.cc/0jtxVzKW/etapa-02.jpg"},
+            {n: "03", t: "Concretagem", d: "Lançamento e nivelamento do concreto do radier.", img: "https://i.postimg.cc/90xVLDwL/etapa-03.jpg"},
+            {n: "04", t: "Radier Pronto", d: "Base estrutural finalizada para receber as paredes.", img: "https://i.postimg.cc/d3Wv5hZ4/etapa-04.jpg"},
+            {n: "05", t: "Início das Paredes EPS", d: "Montagem dos painéis estruturais sobre o radier.", img: "https://i.postimg.cc/rshcfDRh/etapa-05.jpg"},
+            {n: "06", t: "Amarração", d: "Fixação das telas metálicas entre os painéis.", img: "https://i.postimg.cc/tTTpGm4V/etapa-06.jpg"},
+            {n: "07", t: "Instalações", d: "Elétrica e hidráulica dentro dos painéis EPS.", img: "https://i.postimg.cc/MZtW6F3S/etapa-07.jpg"},
+            {n: "08", t: "Fechamento", d: "Conclusão da montagem das paredes estruturais.", img: "https://i.postimg.cc/WpS2NHYT/etapa-08.jpg"},
+            {n: "09", t: "Projeção (Shotcrete)", d: "Aplicação da argamassa estrutural para rigidez.", img: "https://i.postimg.cc/KcQZGHpm/etapa-09.jpg"},
+            {n: "10", t: "Paredes Rebocadas", d: "Regularização pronta para acabamento.", img: "https://i.postimg.cc/L4vH9bQ6/etapa-10.jpg"},
+            {n: "11", t: "Contrapiso", d: "Execução do contrapiso em todos os ambientes.", img: "https://i.postimg.cc/7PXxHWtC/etapa-11.jpg"},
+            {n: "12", t: "Cobertura / Laje", d: "Execução da laje e estrutura de cobertura.", img: "https://i.postimg.cc/PfKtXRV1/etapa-12.jpg"},
+            {n: "13", t: "Concretagem da Laje", d: "Lançamento do concreto sobre a laje.", img: "https://i.postimg.cc/WpS2NHYM/etapa-13.jpg"},
+            {n: "14", t: "Impermeabilização", d: "Aplicação de manta impermeabilizante na laje.", img: "https://i.postimg.cc/9X1WmngT/etapa-14.jpg"},
+            {n: "15", t: "Revestimento", d: "Assentamento dos revestimentos em pisos e paredes.", img: "https://i.postimg.cc/PrxdPQ0p/etapa-15.jpg"},
+            {n: "16", t: "Pintura Interna", d: "Aplicação de massa corrida e pintura interna.", img: "https://i.postimg.cc/kX47BvLR/etapa-16.jpg"},
+            {n: "17", t: "Acabamento Externo", d: "Fachada, pintura externa e calçadas.", img: "https://i.postimg.cc/kX47BvL8/etapa-17.jpg"},
+            {n: "18", t: "Detalhes Finais", d: "Iluminação, paisagismo e ajustes finos.", img: "https://i.postimg.cc/5N0f6SDS/etapa-18.jpg"}
+        ];
+
+        const renderEtapas = (arr) => {
+            return arr.map(e => {
+                const isCore = parseInt(e.n) <= 10;
+                return `
+                <div class="step-card bg-white p-6 rounded-[2.5rem] shadow-sm flex flex-col group ${isCore ? 'core-service-highlight' : 'border border-slate-100'}">
+                    <div class="h-48 w-full rounded-[2rem] overflow-hidden mb-6 bg-slate-100">
+                        <img src="${e.img}" alt="${e.t}" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/400x300?text=VHF+Serviços'">
+                    </div>
+                    <div class="flex items-center gap-4 mb-4">
+                        <span class="text-3xl font-black ${isCore ? 'text-blue-700' : 'text-slate-300'} italic opacity-60">${e.n}</span>
+                        <h4 class="font-bold text-xs uppercase tracking-tighter">${e.t}</h4>
+                    </div>
+                    <p class="text-[11px] text-slate-500 font-light leading-relaxed">${e.d}</p>
+                </div>
+            `}).join('');
+        };
+
+        document.getElementById('track-etapas').innerHTML = renderEtapas(etapas) + renderEtapas(etapas);
+        updateCalc();
+    </script>
+</body>
+</html>
